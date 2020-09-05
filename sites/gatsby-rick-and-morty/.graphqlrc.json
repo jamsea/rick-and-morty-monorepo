@@ -15,7 +15,7 @@
         "generator": "graphql-binding",
         "language": "typescript",
         "output": {
-          "binding": "generated/db.ts"
+          "binding": "src/graphqlTypes.ts"
         }
       }
     ]

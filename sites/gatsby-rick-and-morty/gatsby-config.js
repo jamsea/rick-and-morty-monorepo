@@ -28,6 +28,17 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        // This type will contain remote schema Query type
+        typeName: "RickAndMorty",
+        // This is the field under which it's accessible
+        fieldName: "rickAndMorty",
+        // URL to query from
+        url: "https://rickandmortyapi.com/graphql",
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

@@ -14,7 +14,7 @@ const CharacterPage = ({ data }) => (
 export const query = graphql`
   query CharacterPageQuery {
     rickAndMorty {
-      characters(page: 1, filter: { name: "poopy" }) {
+      characters(page: 1, filter: { name: "rick" }) {
         results {
           name
           image

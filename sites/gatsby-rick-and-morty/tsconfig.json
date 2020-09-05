@@ -13,7 +13,7 @@
     "allowJs": true,
     "plugins": [
       {
-        "name": "@divyenduz/ts-graphql-plugin"
+        "name": "ts-graphql-plugin"
       }
     ]
   },

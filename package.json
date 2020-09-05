@@ -1,0 +1,9 @@
+{
+  "name": "rick-and-morty-monorepo",
+  "version": "0.0.0",
+  "description": "Monorepo for rick and morty project.",
+  "main": "index.js",
+  "author": "James Hush <jhush91@gmail.com>",
+  "license": "MIT",
+  "private": true
+}

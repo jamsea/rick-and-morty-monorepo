@@ -6,13 +6,10 @@ import SEO from "../components/seo"
 import { Query } from "../graphqlTypes"
 
 const CharacterPage = ({ data }: PageProps<Query>) => {
-  const results = data.rickAndMorty?.characters?.results ?? []
-
-  if (results.length === 0) {
-    return <></>
-  }
-  const character = results[0]
-  const { name = "", image = "" } = character
+  const results = data.rickAndMorty?.characters?.results || [
+    { name: "", image: "" },
+  ]
+  const { name, image } = results[0]
 
   return (
     <>
@@ -26,7 +23,7 @@ const CharacterPage = ({ data }: PageProps<Query>) => {
 export const query = graphql`
   query CharacterPageQuery {
     rickAndMorty {
-      characters(page: 1, filter: { name: "rick" }) {
+      characters(page: 1, filter: { name: "poopy" }) {
         results {
           name
           image

@@ -28,8 +28,13 @@
   },
   "devDependencies": {
     "@divyenduz/ts-graphql-plugin": "^0.1.0",
+    "@graphql-codegen/cli": "1.17.8",
+    "@graphql-codegen/typescript": "1.17.8",
     "prettier": "2.1.0",
-    "ts-graphql-plugin": "^2.0.0"
+    "ts-graphql-plugin": "^2.0.0",
+    "@graphql-codegen/typescript-operations": "1.17.8",
+    "@graphql-codegen/typescript-react-apollo": "1.17.8",
+    "@graphql-codegen/introspection": "1.17.8"
   },
   "keywords": [
     "gatsby"
@@ -43,7 +48,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "repository": {
     "type": "git",

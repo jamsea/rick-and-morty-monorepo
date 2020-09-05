@@ -13,7 +13,9 @@
     "allowJs": true,
     "plugins": [
       {
-        "name": "ts-graphql-plugin"
+        "name": "ts-graphql-plugin",
+        "schema": "src/__generated__/gatsby-schema.graphql",
+        "tag": "graphql"
       }
     ]
   },

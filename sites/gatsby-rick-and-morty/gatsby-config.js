@@ -5,7 +5,6 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
-    `gatsby-plugin-typegen`,
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
     {

@@ -4,12 +4,12 @@
     "./src/**/*.{graphql,js,ts,jsx,tsx}",
     "./node_modules/gatsby*/!(node_modules)/**/*.js"
   ],
-  "generates": {
-    "./src/graphqlTypes.ts": {
-      "plugins": ["typescript", "typescript-operations"]
-    }
-  },
   "extensions": {
+    "endpoints": {
+      "default": {
+        "url": "http://localhost:8000/___graphql"
+      }
+    },
     "codegen": [
       {
         "generator": "graphql-binding",

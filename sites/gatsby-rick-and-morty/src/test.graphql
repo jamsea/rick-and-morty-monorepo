@@ -1,0 +1,10 @@
+query CharacterPageQuery {
+  rickAndMorty {
+    characters(page: 1, filter: { name: "poopy" }) {
+      results {
+        name
+        image
+      }
+    }
+  }
+}

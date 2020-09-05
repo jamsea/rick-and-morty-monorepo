@@ -10,7 +10,12 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "noUnusedLocals": false,
-    "allowJs": true
+    "allowJs": true,
+    "plugins": [
+      {
+        "name": "@divyenduz/ts-graphql-plugin"
+      }
+    ]
   },
   "exclude": ["node_modules", "public", ".cache"]
 }

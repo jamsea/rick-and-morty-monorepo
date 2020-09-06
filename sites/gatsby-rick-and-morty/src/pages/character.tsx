@@ -6,22 +6,18 @@ import queryString from "query-string"
 import SEO from "../components/seo"
 
 const CharacterPage = ({ location }: PageProps) => {
-  console.log("hi")
-
   useEffect(() => {
     const queriedCharacter = queryString.parse(location.search)
     console.log("queriedCharacter", queriedCharacter)
     const searchString = queriedCharacter.q
     console.log("character", searchString)
 
-    const query = graphql`
-      query CharacterPageQuery {
-        rickAndMorty {
-          characters(page: 1, filter: { name: $searchString }) {
-            results {
-              name
-              image
-            }
+    const query = `
+        query {
+          characters(page: 1, filter: { name: "rick" }) {
+          results {
+            name
+            image
           }
         }
       }
@@ -31,11 +27,11 @@ const CharacterPage = ({ location }: PageProps) => {
 
     const requestHeaders: HeadersInit = new Headers()
     requestHeaders.set("Content-Type", "application/json")
-    const response = fetch(url, {
+    console.log("query: ", query)
+    fetch(url, {
       method: "POST",
-      mode: "no-cors",
-      headers: requestHeaders,
-      body: JSON.stringify({ query }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query: query }),
     })
       .then(res => res.json())
       .then(console.log)

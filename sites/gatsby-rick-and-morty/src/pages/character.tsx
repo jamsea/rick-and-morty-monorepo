@@ -1,11 +1,14 @@
 import * as React from "react"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { PageProps } from "gatsby"
 import { graphql } from "gatsby"
 import queryString from "query-string"
 import SEO from "../components/seo"
 
 const CharacterPage = ({ location }: PageProps) => {
+  const [name, setName] = useState("")
+  const [imageUrl, setImageUrl] = useState("")
+
   useEffect(() => {
     const queriedCharacter = queryString.parse(location.search)
     console.log("queriedCharacter", queriedCharacter)
@@ -14,7 +17,7 @@ const CharacterPage = ({ location }: PageProps) => {
 
     const query = `
         query {
-          characters(page: 1, filter: { name: "rick" }) {
+          characters(page: 1, filter: { name: "${searchString}" }) {
           results {
             name
             image
@@ -34,13 +37,18 @@ const CharacterPage = ({ location }: PageProps) => {
       body: JSON.stringify({ query: query }),
     })
       .then(res => res.json())
-      .then(console.log)
+      .then(r => {
+        console.log(r.data.characters.results[0].name)
+        setName(r.data.characters.results[0].name)
+        setImageUrl(r.data.characters.results[0].image)
+      })
       .catch(console.error)
   }, [])
 
   return (
     <>
-      <h1></h1>
+      <h1>{name}</h1>
+      <img src={imageUrl} />
     </>
   )
 }

@@ -9,6 +9,12 @@ const CharacterPage = ({ data }: PageProps<Query>) => {
     <>
       <h1>{data.rickAndMorty.character?.name}</h1>
       <img src={data.rickAndMorty.character?.image} />
+      <h2>Episodes</h2>
+      <ol>
+        {data.rickAndMorty.character?.episode?.map(({ name = "" }) => {
+          return <li>{name}</li>
+        })}
+      </ol>
     </>
   )
 }
@@ -19,6 +25,9 @@ export const query = graphql`
       character(id: $id) {
         name
         image
+        episode {
+          name
+        }
       }
     }
   }

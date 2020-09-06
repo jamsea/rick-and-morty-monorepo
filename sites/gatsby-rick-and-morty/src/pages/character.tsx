@@ -1,15 +1,24 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, PageProps } from "gatsby"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
 
-const CharacterPage = ({ data }) => (
-  <>
-    <SEO title="Character Page" />
-    <h1>{data.rickAndMorty.characters.results[0].name}</h1>
-    <img src={data.rickAndMorty.characters.results[0].image} />
-  </>
-)
+import { Query } from "../graphqlTypes"
+
+const CharacterPage = ({ data }: PageProps<Query>) => {
+  const results = data.rickAndMorty?.characters?.results || [
+    { name: "", image: "" },
+  ]
+  const { name, image } = results[0]
+
+  return (
+    <>
+      <SEO title="Character Page" />
+      <h1>{name}</h1>
+      <img src={image} />
+    </>
+  )
+}
 
 export const query = graphql`
   query CharacterPageQuery {

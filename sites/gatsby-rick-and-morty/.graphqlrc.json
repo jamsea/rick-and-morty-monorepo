@@ -1,5 +1,5 @@
 {
-  "schema": "http://localhost:8000/___graphql",
+  "schema": "https://localhost:8000/___graphql",
   "documents": [
     "./src/**/*.{graphql,js,ts,jsx,tsx}",
     "./node_modules/gatsby*/!(node_modules)/**/*.js"
@@ -7,7 +7,7 @@
   "extensions": {
     "endpoints": {
       "default": {
-        "url": "http://localhost:8000/___graphql"
+        "url": "https://localhost:8000/___graphql"
       }
     },
     "codegen": [

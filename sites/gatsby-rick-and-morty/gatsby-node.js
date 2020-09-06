@@ -1,7 +1,9 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
-
-// You can delete this file if you're not using it
+exports.createPages = async function ({ actions, graphql }) {
+  for (let id = 1; id < 600; id++) {
+    actions.createPage({
+      path: `character/${id}`,
+      component: require.resolve(`./src/components/character.tsx`),
+      context: { id },
+    })
+  }
+}
